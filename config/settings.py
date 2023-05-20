@@ -86,7 +86,7 @@ DATABASES = {
         "NAME": "ortdb",
         "USER": "postgres",
         "PASSWORD": "diushes",
-        "HOST": "localhost",
+        "HOST": "127.0.0.1",
         "PORT": "5432",
     }
 }
