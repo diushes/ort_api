@@ -1,0 +1,24 @@
+# .gitignore
+
+# Python/Django
+*.pyc
+__pycache__/
+.python-version
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Database
+db.sqlite3
+
+# Static files
+staticfiles/
+
+# Log files
+*.log
+
+# Ignore the Heroku-specific files if using Heroku for deployment
+Procfile
+runtime.txt
