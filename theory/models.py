@@ -5,8 +5,7 @@ from django.templatetags.static import static
 class Category(models.Model):
     title = models.CharField(max_length=100, blank=False)
     image = models.ImageField(
-        blank=False, upload_to="categories/", default=static("images/placeholder.png")
-    )
+        blank=False, upload_to="categories/")
 
     class Meta:
         verbose_name_plural = "Categories"
