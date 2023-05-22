@@ -20,5 +20,3 @@ staticfiles/
 *.log
 
 # Ignore the Heroku-specific files if using Heroku for deployment
-Procfile
-runtime.txt
