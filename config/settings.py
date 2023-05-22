@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
+import django_heroku
 import dj_database_url
 
 
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -89,9 +91,19 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 
 
-DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+DATABASES = {     
+		'default': {
+      	'ENGINE': 'django.db.backends.postgresql',
+      	'HOST' : os.environ.get('POSTGRES_HOST', 'localhost'),
+      	'NAME': os.environ.get('POSTGRES_DB', 'ort_db'),
+      	'USER': os.environ.get('POSTGRES_USER', 'postgres'),
+      	'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'diushes'),
+      	'PORT': os.environ.get('POSTGRES_PORT', '5432'),
+    }
 }
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 
@@ -140,3 +152,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+django_heroku.settings(locals())
