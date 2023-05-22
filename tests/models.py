@@ -14,7 +14,7 @@ class Question(models.Model):
     test = models.ForeignKey("Test", on_delete=models.CASCADE, related_name="questions")
 
     def __str__(self) -> str:
-        return self.question
+        return self.question_text
 
 
 class Option(models.Model):
