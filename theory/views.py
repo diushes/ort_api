@@ -22,3 +22,4 @@ def index(request):
 class CategoriesListView(generics.ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+

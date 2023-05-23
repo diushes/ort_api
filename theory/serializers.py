@@ -10,6 +10,7 @@ class TopicSerializer(serializers.ModelSerializer):
 
 class CategorySerializer(serializers.ModelSerializer):
     topics = TopicSerializer(many=True, read_only=True)
+    
 
     class Meta:
         model = Category
