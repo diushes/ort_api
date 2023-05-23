@@ -1,4 +1,6 @@
 from rest_framework import serializers
+
+from theory.models import Category
 from .models import Test, Question, Option
 
 
@@ -18,6 +20,10 @@ class QuestionSerializer(serializers.ModelSerializer):
 
 class TestSerializer(serializers.ModelSerializer):
     questions = QuestionSerializer(many=True, read_only=True)
+    category = serializers.SlugRelatedField(
+        slug_field='title',
+        queryset=Category.objects.all()
+    )
 
     class Meta:
         model = Test
