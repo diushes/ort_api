@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 from theory.views import index
-from social_django.urls import urlpatterns as social_django_urls
+
 
 
 urlpatterns = [
