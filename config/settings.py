@@ -182,6 +182,6 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
-LOGIN_REDIRECT_URl = 'https://ort.herokuapp.com/accounts/google/login/callback/'
+LOGIN_REDIRECT_URL = 'https://ort.herokuapp.com/accounts/google/login/callback/'
                                         
 
