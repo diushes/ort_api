@@ -182,4 +182,5 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
-LOGIN_REDIRECT_URL = 'https://ort.herokuapp.com/accounts/google/login/callback/'
+SOCIAL_AUTH_GOOGLE_OAUTH2_REDIRECT_URI = 'https://ort.herokuapp.com/accounts/google/login/callback/'
+
