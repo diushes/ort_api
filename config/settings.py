@@ -53,13 +53,8 @@ INSTALLED_APPS = [
     # project apps
     "theory",
     "tests",
-    "forum",
 
-    # authentification
-    'allauth', # must
-    'allauth.account', # must
-    'allauth.socialaccount', # must
-    'allauth.socialaccount.providers.google', # new
+
 ]
 
 
@@ -170,43 +165,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 #deployment
 django_heroku.settings(locals())
 
-#Authentication
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
-}
 
-
-AUTHENTICATION_BACKENDS = [
-    # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
-
-    # `allauth` specific authentication methods, such as login by e-mail
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
-
-SITE_ID = 1
-LOGIN_REDIRECT_URL = 'https://ort.herokuapp.com/accounts/google/login/callback/'
-
-# Additional configuration settings
-SOCIALACCOUNT_QUERY_EMAIL = True
-ACCOUNT_LOGOUT_ON_GET= True
-ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_EMAIL_REQUIRED = True
-
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        'SCOPE': [
-            'profile',
-            'email',
-        ],
-        'AUTH_PARAMS': {
-            'access_type': 'online',
-        }
-    }
-}
