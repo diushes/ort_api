@@ -96,14 +96,13 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 
 
-DATABASES = {     
-		'default': {
-      	'ENGINE': 'django.db.backends.postgresql',
-      	'HOST' : os.environ.get('POSTGRES_HOST', 'localhost'),
-      	'NAME': os.environ.get('POSTGRES_DB', 'ort_db'),
-      	'USER': os.environ.get('POSTGRES_USER', 'postgres'),
-      	'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'diushes'),
-      	'PORT': os.environ.get('POSTGRES_PORT', '5432'),
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'aiana$ort_db',
+        'USER': 'aiana',
+        'PASSWORD': 'ortdiushes',
+        'HOST': 'aiana.mysql.pythonanywhere-services.com',  # This should be provided by PythonAnywhere Leave this empty
     }
 }
 
