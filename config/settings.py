@@ -12,8 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 import os
 from pathlib import Path
-import django_heroku
-import dj_database_url
+
 
 
 
@@ -32,8 +31,7 @@ SECRET_KEY = "django-insecure-r-cu-@9+j^v_2l%fks#9wnsl+5lhl4i_%93+qya&etz_@go6!u
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = ["*"]
-CORS_ALLOW_ALL_ORIGINS = True
-
+SITE_ID = 1
 
 # Application definition
 
@@ -49,7 +47,6 @@ INSTALLED_APPS = [
     # additionals
     "rest_framework",
     'nested_inline',
-    "corsheaders",
 
     # project apps
     "theory",
@@ -110,8 +107,7 @@ DATABASES = {
     }
 }
 
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
+
 
 
 
@@ -163,7 +159,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-#deployment
-django_heroku.settings(locals())
+# In your Django project's settings.py
+
+# Allow requests from the origin where your Flutter web app is hosted
+# settings.py
+
+
 
 
