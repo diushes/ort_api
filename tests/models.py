@@ -8,6 +8,9 @@ class Test(models.Model):
     def __str__(self) -> str:
         return self.title
 
+    def category_title(self):
+        return self.category.title
+
 
 class Question(models.Model):
     question_text = models.TextField(blank=False)
